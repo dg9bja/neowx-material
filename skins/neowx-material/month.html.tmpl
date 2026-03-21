@@ -19,7 +19,7 @@
 #set $ArcticDay = ($table_dict.get('arctic_days_threshold', 0.0),  $threshold_unit)
 
 #def valuesCard($name)
-    #if $getVar('month.' + name + '.has_data')
+    #if $name != 'GTS' and $getVar('month.' + name + '.has_data')
         <div class="col-12 col-md-6 col-xl-4 mb-4">
             <div class="card card-value" id="${name}-value" data-name="$name">
                 <div class="card-body text-center">
@@ -128,7 +128,7 @@
 ## +-------------------------------------------------------------------------+
 
 #def chartCard($name, $id, $name2 = "XX")
-    #if ($getVar('month.' + name + '.has_data') or $name == "windvec") and $name != "appTemp"
+    #if ($getVar('month.' + name + '.has_data') or $name == "windvec") and $name != "appTemp" and $name != "GTS"
         <div class="col-12 col-xl-6 mb-4">
             <div class="card card-chart" id="${name}-chart" data-name="$name">
                 <div class="card-body text-center">
